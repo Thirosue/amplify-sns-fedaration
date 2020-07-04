@@ -4,19 +4,20 @@
       <h1
         class="animate__animated animate__bounce animate__repeat-3 animate__slow"
       >
-        Logging in...
+        <font color="gray">processing...</font>
       </h1>
     </template>
     <template v-else>
       <template v-if="signedIn">
-        <h1>
-          Logged in
-        </h1>
-        <a href="#" @click="signOut">Sign Out</a>
+        <h1>Logged in</h1>
+        <a href="#" @click="signOut"><font color="gray">Sign Out</font></a>
       </template>
       <template v-else>
         <amplify-authenticator v-bind:authConfig="authConfig" />
-        <a href="#" @click="signIn('Google')">Googleでログイン</a>
+        <ul>
+          <li><a href="#" @click="signIn('Google')">Googleでログイン</a></li>
+          <li><a href="#" @click="signIn('LINE')">LINEでログイン</a></li>
+        </ul>
       </template>
     </template>
   </div>
@@ -74,7 +75,7 @@ export default {
       await Auth.signOut().finally(() => {
         localStorage.clear();
         Swal.fire({
-          title: "ログアウトしました",
+          title: "ログアウトしています...",
           timer: 1000,
           timerProgressBar: false,
           onBeforeOpen: () => {
@@ -103,5 +104,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul {
+  list-style-type: none;
 }
 </style>

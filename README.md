@@ -24,7 +24,6 @@ amplify -v
 
 - Google
 - LINE
-- FaceBook
 
 ## Amplify Project setup
 
@@ -132,7 +131,8 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
 amplify add auth
 ```
 
-> Enter the Client ID and Secret that you obtained in advance on GCP to proceed
+- Enter the Client ID and Secret that you obtained in advance on GCP to proceed
+- See [here](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/) for settings for LINE
 
 ```
 % amplify add auth
@@ -142,9 +142,12 @@ Using service: Cognito, provided by: awscloudformation
 
  Do you want to use the default authentication and security configuration? Default configuration with Social Provider (Federation)
  Warning: you will not be able to edit these selections.
- How do you want users to be able to sign in? Email
- Do you want to configure advanced settings? No, I am done.
- What domain name prefix do you want to use? amplifysnsfedaration8a671f45-8a671f45
+ How do you want users to be able to sign in? Username
+ Do you want to configure advanced settings? Yes, I want to make some additional changes.
+ Warning: you will not be able to edit these selections.
+ What attributes are required for signing up? Name
+ Do you want to enable any of the following capabilities?
+ What domain name prefix do you want to use? amplifysnsfedaration4e30a10c-4e30a10c
  Enter your redirect signin URI: http://localhost:8080/
 ? Do you want to add another redirect signin URI No
  Enter your redirect signout URI: http://localhost:8080/
@@ -162,6 +165,18 @@ Some next steps:
 "amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
 ```
 
+### Register Line Provider to Cognito
+
+> See [here](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#Cognito%E3%81%ABLine%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%82%92%E7%99%BB%E9%8C%B2) for Cognito settings
+
+### Map attributes to Line login
+
+> See [here](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#Line%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AB%E5%B1%9E%E6%80%A7%E3%82%92%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0)
+
+### Set the identity provider in the app client
+
+> See [here](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#%E3%82%A2%E3%83%97%E3%83%AA%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%81%ABID%E3%83%97%E3%83%AD%E3%83%90%E3%82%A4%E3%83%80%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)
+
 ## 参考リンク
 
 - Amplify を利用した開発
@@ -169,4 +184,12 @@ Some next steps:
   - [AWS 怠惰なプログラマ向けお手軽アプリ開発手法](https://feature-webpush.dma9ecr5ksxts.amplifyapp.com/)
 
 - Google 側の連携設定
+
   - [Google アカウントの連携を有効にする](https://qiita.com/poruruba/items/189945dc64edfe1f2464#google%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E9%80%A3%E6%90%BA%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B)
+
+- LINE 側の連携設定
+
+  - [LINE 認証](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#Line-Developer%E8%A8%AD%E5%AE%9A)
+
+- FaceBook 側の連携設定
+  - [Facebook 認証](https://qiita.com/is_ryo/items/a437225115b27e05c8ee#facebook%E8%AA%8D%E8%A8%BC)
