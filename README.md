@@ -1,0 +1,1 @@
+# amplify-sns-fedaration
